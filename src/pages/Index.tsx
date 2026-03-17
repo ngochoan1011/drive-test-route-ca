@@ -1,16 +1,72 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useCallback } from "react";
+import { testCenters, type TestCenter, type Route } from "@/data/testCenters";
+import MapView from "@/components/MapView";
+import SearchBar from "@/components/SearchBar";
+import BottomSheet from "@/components/BottomSheet";
+import TestCenterList from "@/components/TestCenterList";
+import RouteList from "@/components/RouteList";
+import RouteDetail from "@/components/RouteDetail";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+type View = "list" | "routes" | "detail";
+
+const Index = () => {
+  const [view, setView] = useState<View>("list");
+  const [selectedCenter, setSelectedCenter] = useState<TestCenter | null>(null);
+  const [selectedRoute, setSelectedRoute] = useState<Route | null>(null);
+
+  const handleSelectCenter = useCallback((center: TestCenter) => {
+    setSelectedCenter(center);
+    setSelectedRoute(null);
+    setView("routes");
+  }, []);
+
+  const handleSelectRoute = useCallback((route: Route) => {
+    setSelectedRoute(route);
+    setView("detail");
+  }, []);
+
+  const handleBack = useCallback(() => {
+    if (view === "detail") {
+      setSelectedRoute(null);
+      setView("routes");
+    } else if (view === "routes") {
+      setSelectedCenter(null);
+      setView("list");
+    }
+  }, [view]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="relative h-screen w-screen overflow-hidden">
+      <MapView
+        centers={testCenters}
+        selectedRoute={selectedRoute}
+        selectedCenter={selectedCenter}
+        onCenterClick={handleSelectCenter}
+      />
+
+      <SearchBar centers={testCenters} onSelect={handleSelectCenter} />
+
+      <BottomSheet>
+        {view === "list" && (
+          <TestCenterList centers={testCenters} onSelect={handleSelectCenter} />
+        )}
+        {view === "routes" && selectedCenter && (
+          <RouteList
+            center={selectedCenter}
+            onSelectRoute={handleSelectRoute}
+            onBack={handleBack}
+          />
+        )}
+        {view === "detail" && selectedRoute && selectedCenter && (
+          <RouteDetail
+            route={selectedRoute}
+            center={selectedCenter}
+            onBack={handleBack}
+          />
+        )}
+      </BottomSheet>
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
