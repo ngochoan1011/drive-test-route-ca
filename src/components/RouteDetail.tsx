@@ -1,4 +1,5 @@
-import { ArrowLeft, Play, AlertTriangle, Gauge } from "lucide-react";
+import { ArrowLeft, Play, AlertTriangle, Gauge, Share2 } from "lucide-react";
+import { toast } from "sonner";
 import type { Route, TestCenter } from "@/data/testCenters";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,16 @@ const RouteDetail = ({ route, center, onBack }: RouteDetailProps) => {
           </div>
           <p className="text-xs text-muted-foreground">{center.city} • {route.distance_km} km • ~{route.estimated_minutes} min</p>
         </div>
+        <button
+          onClick={() => {
+            navigator.clipboard.writeText(window.location.href);
+            toast.success("Link copied to clipboard!");
+          }}
+          className="h-9 w-9 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors min-h-[44px] min-w-[44px]"
+          aria-label="Share route"
+        >
+          <Share2 className="h-4 w-4" />
+        </button>
       </div>
 
       <p className="text-sm text-muted-foreground">{route.description}</p>
