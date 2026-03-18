@@ -75,7 +75,7 @@ function generateSQL() {
         const route = JSON.parse(readFileSync(join(routesDir, routeFile), 'utf8'));
 
         statements.push(
-          `INSERT OR REPLACE INTO routes (id, center_id, name, test_type, description, contributor_github_id, distance_km, estimated_minutes, coordinates) VALUES (${escapeSQL(route.id)}, ${escapeSQL(center.id)}, ${escapeSQL(route.name)}, ${escapeSQL(route.testType)}, ${escapeSQL(route.description)}, ${escapeSQL(route.contributor_github_id)}, ${route.distance_km}, ${route.estimated_minutes}, ${escapeSQL(JSON.stringify(route.coordinates))});`
+          `INSERT OR REPLACE INTO routes (id, center_id, name, test_type, description, contributor_github_id, distance_km, estimated_minutes, coordinates, tips) VALUES (${escapeSQL(route.id)}, ${escapeSQL(center.id)}, ${escapeSQL(route.name)}, ${escapeSQL(route.testType)}, ${escapeSQL(route.description)}, ${escapeSQL(route.contributor_github_id)}, ${route.distance_km}, ${route.estimated_minutes}, ${escapeSQL(JSON.stringify(route.coordinates))}, ${route.tips ? escapeSQL(route.tips) : 'NULL'});`
         );
 
         // Speed zones

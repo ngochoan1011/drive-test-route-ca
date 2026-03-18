@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS routes (
   distance_km REAL,
   estimated_minutes INTEGER,
   coordinates TEXT NOT NULL,
+  tips TEXT,
   FOREIGN KEY (center_id) REFERENCES test_centers(id) ON DELETE CASCADE
 );
 
@@ -39,7 +40,10 @@ CREATE TABLE IF NOT EXISTS hazards (
   route_id TEXT NOT NULL,
   lat REAL NOT NULL,
   lng REAL NOT NULL,
-  type TEXT NOT NULL CHECK(type IN ('stop_sign','blind_spot','school_zone','merge','pedestrian')),
+  type TEXT NOT NULL CHECK(type IN (
+    'stop_sign','blind_spot','school_zone','merge','pedestrian',
+    'yield_sign','lane_forced_turn','parked_cars','following_distance','right_on_red'
+  )),
   description TEXT,
   FOREIGN KEY (route_id) REFERENCES routes(id) ON DELETE CASCADE
 );

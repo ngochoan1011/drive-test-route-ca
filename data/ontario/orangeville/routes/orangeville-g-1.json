@@ -1,32 +1,122 @@
 {
   "id": "orangeville-g-1",
-  "name": "Orangeville G Route 1",
+  "name": "Orangeville G Test Route 1",
   "testType": "G",
-  "description": "Full G test route including highway merge onto Hwy 10 and residential streets.",
-  "contributor_github_id": "ontario-drivers",
-  "distance_km": 15.4,
-  "estimated_minutes": 25,
+  "description": "Full G road test route through Orangeville combining plaza exit, Highway 10 bypass (80 km/h), downtown Broadway (50 km/h), and residential streets with school zones (40 km/h). Includes highway lane changes, yield sign exit, downtown right-on-red traps, and three consecutive 4-way stops in residential area.",
+  "tips": "Bắt buộc lùi xe vào chuồng (Reverse Park) khi đến trung tâm chờ thi để lúc xuất phát đi ra dễ dàng và an toàn hơn.",
+  "contributor_github_id": "ora-driving-academy",
+  "distance_km": 12.5,
+  "estimated_minutes": 20,
   "coordinates": [
-    [43.9201, -80.0943],
-    [43.9180, -80.0960],
-    [43.9150, -80.0990],
-    [43.9120, -80.1020],
-    [43.9080, -80.1060],
-    [43.9050, -80.1100],
-    [43.9020, -80.1080],
-    [43.9050, -80.1040],
-    [43.9080, -80.1000],
-    [43.9120, -80.0960],
-    [43.9160, -80.0940],
-    [43.9201, -80.0943]
+    [43.9193, -80.0937],
+    [43.9189, -80.0928],
+    [43.9183, -80.0920],
+    [43.9178, -80.0943],
+    [43.9165, -80.0975],
+    [43.9148, -80.1010],
+    [43.9135, -80.1035],
+    [43.9142, -80.1050],
+    [43.9155, -80.1020],
+    [43.9168, -80.0985],
+    [43.9180, -80.0955],
+    [43.9190, -80.0940],
+    [43.9195, -80.0970],
+    [43.9200, -80.0995],
+    [43.9225, -80.1025],
+    [43.9248, -80.1040],
+    [43.9265, -80.1045],
+    [43.9275, -80.1030],
+    [43.9268, -80.0990],
+    [43.9260, -80.0955],
+    [43.9252, -80.0930],
+    [43.9240, -80.0925],
+    [43.9225, -80.0920],
+    [43.9215, -80.0918],
+    [43.9212, -80.0930],
+    [43.9210, -80.0942],
+    [43.9208, -80.0955],
+    [43.9200, -80.0955],
+    [43.9195, -80.0952],
+    [43.9193, -80.0940],
+    [43.9193, -80.0937]
+  ],
+  "waypoints": [
+    { "step": 1,  "lat": 43.9193, "lng": -80.0937, "instruction": "Start: Exit plaza, turn right behind the building" },
+    { "step": 2,  "lat": 43.9183, "lng": -80.0920, "instruction": "One-way stop sign — turn right" },
+    { "step": 3,  "lat": 43.9178, "lng": -80.0943, "instruction": "Traffic light — turn left onto Highway 10 / First St" },
+    { "step": 4,  "lat": 43.9165, "lng": -80.0975, "instruction": "Highway 80 km/h — merge left, then move to right lane" },
+    { "step": 5,  "lat": 43.9135, "lng": -80.1035, "instruction": "Highway lane changes: left lane then back to right lane" },
+    { "step": 6,  "lat": 43.9142, "lng": -80.1050, "instruction": "Traffic light — turn left onto First Street" },
+    { "step": 7,  "lat": 43.9168, "lng": -80.0985, "instruction": "First St — right lane added, move right. Pass Hansen Blvd" },
+    { "step": 8,  "lat": 43.9190, "lng": -80.0940, "instruction": "Move to left lane, turn left onto Fifth Avenue. Yield to oncoming traffic" },
+    { "step": 9,  "lat": 43.9200, "lng": -80.0995, "instruction": "Move to right lane, turn right at light onto bypass — accelerate to 80 km/h" },
+    { "step": 10, "lat": 43.9248, "lng": -80.1040, "instruction": "Highway lane changes (round 2): left then back to right" },
+    { "step": 11, "lat": 43.9275, "lng": -80.1030, "instruction": "Exit right onto Broadway — YIELD sign, check pedestrians & traffic from left" },
+    { "step": 12, "lat": 43.9260, "lng": -80.0955, "instruction": "Broadway downtown (50 km/h). Right lane becomes right-turn-only — move to left lane" },
+    { "step": 13, "lat": 43.9252, "lng": -80.0930, "instruction": "Turn right onto First Street" },
+    { "step": 14, "lat": 43.9215, "lng": -80.0918, "instruction": "Turn right onto Second Avenue — residential 40 km/h zone" },
+    { "step": 15, "lat": 43.9210, "lng": -80.0942, "instruction": "All-way stop #1 — go straight" },
+    { "step": 16, "lat": 43.9208, "lng": -80.0955, "instruction": "All-way stop #2 — turn left" },
+    { "step": 17, "lat": 43.9195, "lng": -80.0952, "instruction": "All-way stop #3 — turn right" },
+    { "step": 18, "lat": 43.9193, "lng": -80.0937, "instruction": "Turn right into DriveTest Centre entrance. Front-in park. Done!" }
   ],
   "speedZones": [
-    { "lat": 43.9150, "lng": -80.0990, "speed": 80, "label": "Hwy 10" },
-    { "lat": 43.9050, "lng": -80.1100, "speed": 80 },
-    { "lat": 43.9080, "lng": -80.1000, "speed": 50 }
+    { "lat": 43.9193, "lng": -80.0937, "speed": 15, "label": "Plaza / Internal Road" },
+    { "lat": 43.9165, "lng": -80.0975, "speed": 80, "label": "Highway 10 Bypass (Southbound)" },
+    { "lat": 43.9168, "lng": -80.0985, "speed": 50, "label": "First Street & Broadway (Downtown)" },
+    { "lat": 43.9190, "lng": -80.0940, "speed": 40, "label": "Fifth Avenue (School/Residential Zone)" },
+    { "lat": 43.9225, "lng": -80.1025, "speed": 80, "label": "Highway 10 Bypass (Northbound)" },
+    { "lat": 43.9260, "lng": -80.0955, "speed": 50, "label": "Broadway (Downtown)" },
+    { "lat": 43.9215, "lng": -80.0918, "speed": 40, "label": "Second Avenue (Residential Zone — DO NOT exceed 40)" }
   ],
   "hazards": [
-    { "lat": 43.9120, "lng": -80.1020, "type": "merge", "description": "Highway merge — check blind spot" },
-    { "lat": 43.9050, "lng": -80.1040, "type": "stop_sign", "description": "Stop sign at rural intersection" }
+    {
+      "lat": 43.9275,
+      "lng": -80.1030,
+      "type": "yield_sign",
+      "description": "Broadway exit — Yield sign. Check pedestrians and traffic from left before merging."
+    },
+    {
+      "lat": 43.9260,
+      "lng": -80.0955,
+      "type": "lane_forced_turn",
+      "description": "TRAP: Right lane becomes right-turn-only on Broadway. Must signal and move to left lane to continue straight — do NOT wait for examiner to tell you."
+    },
+    {
+      "lat": 43.9252,
+      "lng": -80.0930,
+      "type": "right_on_red",
+      "description": "TRAP: When turning right on red downtown, must come to COMPLETE stop. If green but pedestrians stepping off curb, wait until they reach the far sidewalk before moving."
+    },
+    {
+      "lat": 43.9212,
+      "lng": -80.0930,
+      "type": "parked_cars",
+      "description": "TRAP: Cars parked on Second Ave — maintain at least 1 meter clearance when passing."
+    },
+    {
+      "lat": 43.9148,
+      "lng": -80.1010,
+      "type": "following_distance",
+      "description": "TRAP: When stopped at red light on highway, stop far enough behind the car ahead that you can see their rear tires touching the pavement."
+    },
+    {
+      "lat": 43.9210,
+      "lng": -80.0942,
+      "type": "stop_sign",
+      "description": "All-way stop #1 — full stop required, check all directions"
+    },
+    {
+      "lat": 43.9208,
+      "lng": -80.0955,
+      "type": "stop_sign",
+      "description": "All-way stop #2 — full stop, then turn left"
+    },
+    {
+      "lat": 43.9195,
+      "lng": -80.0952,
+      "type": "stop_sign",
+      "description": "All-way stop #3 — full stop, then turn right"
+    }
   ]
 }

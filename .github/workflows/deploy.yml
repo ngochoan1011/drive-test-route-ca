@@ -33,12 +33,19 @@ jobs:
           command: pages deploy dist --project-name=drivetest-routes-ca
 
       # Step 2: Run schema migrations on D1
-      - name: Run D1 Migrations
+      - name: Run D1 Migration 0001
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: d1 execute drivetest-db --remote --file=migrations/0001_init.sql
+
+      - name: Run D1 Migration 0002
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: d1 execute drivetest-db --remote --file=migrations/0002_add_hazard_types.sql
 
       # Step 3: Generate sync SQL from /data JSON files
       - name: Generate Sync SQL
