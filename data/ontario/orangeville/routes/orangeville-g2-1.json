@@ -1,0 +1,34 @@
+{
+  "id": "orangeville-g2-1",
+  "name": "Orangeville G2 Route 1",
+  "testType": "G2",
+  "description": "Standard G2 test route covering residential streets and Broadway intersection. Includes parallel parking near Town Hall.",
+  "contributor_github_id": "drivetest-community",
+  "distance_km": 8.2,
+  "estimated_minutes": 15,
+  "coordinates": [
+    [43.9201, -80.0943],
+    [43.9215, -80.0930],
+    [43.9230, -80.0910],
+    [43.9245, -80.0885],
+    [43.9260, -80.0870],
+    [43.9275, -80.0855],
+    [43.9260, -80.0830],
+    [43.9240, -80.0810],
+    [43.9220, -80.0830],
+    [43.9210, -80.0860],
+    [43.9200, -80.0890],
+    [43.9195, -80.0920],
+    [43.9201, -80.0943]
+  ],
+  "speedZones": [
+    { "lat": 43.9215, "lng": -80.0930, "speed": 40, "label": "School Zone" },
+    { "lat": 43.9260, "lng": -80.0870, "speed": 50 },
+    { "lat": 43.9240, "lng": -80.0810, "speed": 60 }
+  ],
+  "hazards": [
+    { "lat": 43.9230, "lng": -80.0910, "type": "stop_sign", "description": "Hidden stop sign behind tree" },
+    { "lat": 43.9275, "lng": -80.0855, "type": "blind_spot", "description": "Blind corner at Broadway & First" },
+    { "lat": 43.9220, "lng": -80.0830, "type": "pedestrian", "description": "Heavy pedestrian traffic near park" }
+  ]
+}

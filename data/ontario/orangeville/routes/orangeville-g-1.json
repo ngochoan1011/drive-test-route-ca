@@ -1,0 +1,32 @@
+{
+  "id": "orangeville-g-1",
+  "name": "Orangeville G Route 1",
+  "testType": "G",
+  "description": "Full G test route including highway merge onto Hwy 10 and residential streets.",
+  "contributor_github_id": "ontario-drivers",
+  "distance_km": 15.4,
+  "estimated_minutes": 25,
+  "coordinates": [
+    [43.9201, -80.0943],
+    [43.9180, -80.0960],
+    [43.9150, -80.0990],
+    [43.9120, -80.1020],
+    [43.9080, -80.1060],
+    [43.9050, -80.1100],
+    [43.9020, -80.1080],
+    [43.9050, -80.1040],
+    [43.9080, -80.1000],
+    [43.9120, -80.0960],
+    [43.9160, -80.0940],
+    [43.9201, -80.0943]
+  ],
+  "speedZones": [
+    { "lat": 43.9150, "lng": -80.0990, "speed": 80, "label": "Hwy 10" },
+    { "lat": 43.9050, "lng": -80.1100, "speed": 80 },
+    { "lat": 43.9080, "lng": -80.1000, "speed": 50 }
+  ],
+  "hazards": [
+    { "lat": 43.9120, "lng": -80.1020, "type": "merge", "description": "Highway merge — check blind spot" },
+    { "lat": 43.9050, "lng": -80.1040, "type": "stop_sign", "description": "Stop sign at rural intersection" }
+  ]
+}

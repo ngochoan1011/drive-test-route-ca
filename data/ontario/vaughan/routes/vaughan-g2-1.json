@@ -1,0 +1,33 @@
+{
+  "id": "vaughan-g2-1",
+  "name": "Vaughan G2 Route 1",
+  "testType": "G2",
+  "description": "Popular G2 route through residential Vaughan. Covers Rutherford Rd, Weston Rd, and local side streets.",
+  "contributor_github_id": "vaughan-driver",
+  "distance_km": 9.1,
+  "estimated_minutes": 18,
+  "coordinates": [
+    [43.8361, -79.5430],
+    [43.8375, -79.5410],
+    [43.8390, -79.5380],
+    [43.8405, -79.5350],
+    [43.8420, -79.5320],
+    [43.8435, -79.5290],
+    [43.8420, -79.5260],
+    [43.8400, -79.5280],
+    [43.8380, -79.5310],
+    [43.8365, -79.5350],
+    [43.8355, -79.5390],
+    [43.8361, -79.5430]
+  ],
+  "speedZones": [
+    { "lat": 43.8375, "lng": -79.5410, "speed": 50 },
+    { "lat": 43.8420, "lng": -79.5320, "speed": 40, "label": "School Zone" },
+    { "lat": 43.8380, "lng": -79.5310, "speed": 60 }
+  ],
+  "hazards": [
+    { "lat": 43.8390, "lng": -79.5380, "type": "stop_sign", "description": "4-way stop — often missed" },
+    { "lat": 43.8435, "lng": -79.5290, "type": "blind_spot", "description": "Blind driveway exit on right" },
+    { "lat": 43.8400, "lng": -79.5280, "type": "school_zone", "description": "School zone — watch for children" }
+  ]
+}

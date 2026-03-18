@@ -1,0 +1,8 @@
+name = "drivetest-routes-ca"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "drivetest-db"
+database_id = "530f0aee-6cff-48c6-b5dd-9aec4b453d65"

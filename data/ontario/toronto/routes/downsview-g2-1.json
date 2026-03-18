@@ -1,0 +1,29 @@
+{
+  "id": "downsview-g2-1",
+  "name": "Downsview G2 Route 1",
+  "testType": "G2",
+  "description": "Urban G2 route through North York residential area. Includes tight turns and busy intersections.",
+  "contributor_github_id": "gta-routes",
+  "distance_km": 7.8,
+  "estimated_minutes": 16,
+  "coordinates": [
+    [43.7615, -79.4111],
+    [43.7630, -79.4090],
+    [43.7645, -79.4060],
+    [43.7660, -79.4030],
+    [43.7650, -79.4000],
+    [43.7635, -79.3980],
+    [43.7620, -79.4010],
+    [43.7610, -79.4050],
+    [43.7605, -79.4080],
+    [43.7615, -79.4111]
+  ],
+  "speedZones": [
+    { "lat": 43.7630, "lng": -79.4090, "speed": 40 },
+    { "lat": 43.7660, "lng": -79.4030, "speed": 50 }
+  ],
+  "hazards": [
+    { "lat": 43.7645, "lng": -79.4060, "type": "pedestrian", "description": "Busy pedestrian crossing" },
+    { "lat": 43.7635, "lng": -79.3980, "type": "stop_sign", "description": "Partially hidden stop sign" }
+  ]
+}
