@@ -27,9 +27,6 @@ function escapeSQL(str) {
 function generateSQL() {
   const statements = [];
 
-  // Begin transaction
-  statements.push('BEGIN TRANSACTION;');
-
   // Clear existing data (full sync approach)
   statements.push('DELETE FROM hazards;');
   statements.push('DELETE FROM speed_zones;');
@@ -101,9 +98,6 @@ function generateSQL() {
       }
     }
   }
-
-  // Commit transaction
-  statements.push('COMMIT;');
 
   return statements.join('\n');
 }
