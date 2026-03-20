@@ -143,3 +143,34 @@
   border: 2px solid hsl(var(--background));
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
+
+/* Practice mode pulsing head marker */
+.practice-head-marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #00E5FF;
+  border: 3px solid white;
+  box-shadow:
+    0 0 12px rgba(0, 229, 255, 0.8),
+    0 0 24px rgba(0, 229, 255, 0.4),
+    0 0 48px rgba(0, 229, 255, 0.2);
+  animation: practice-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes practice-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 12px rgba(0, 229, 255, 0.8),
+      0 0 24px rgba(0, 229, 255, 0.4),
+      0 0 48px rgba(0, 229, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow:
+      0 0 20px rgba(0, 229, 255, 1),
+      0 0 40px rgba(0, 229, 255, 0.6),
+      0 0 60px rgba(0, 229, 255, 0.3);
+  }
+}

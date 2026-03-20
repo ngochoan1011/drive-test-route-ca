@@ -1,4 +1,4 @@
-import { ArrowLeft, Play, AlertTriangle, Gauge, Share2 } from "lucide-react";
+import { ArrowLeft, Play, Square, AlertTriangle, Gauge, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import type { Route, TestCenter } from "@/data/testCenters";
 import { Badge } from "@/components/ui/badge";
@@ -8,9 +8,11 @@ interface RouteDetailProps {
   route: Route;
   center: TestCenter;
   onBack: () => void;
+  isPracticeMode: boolean;
+  onTogglePractice: () => void;
 }
 
-const RouteDetail = ({ route, center, onBack }: RouteDetailProps) => {
+const RouteDetail = ({ route, center, onBack, isPracticeMode, onTogglePractice }: RouteDetailProps) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
@@ -46,9 +48,19 @@ const RouteDetail = ({ route, center, onBack }: RouteDetailProps) => {
 
       <p className="text-sm text-muted-foreground">{route.description}</p>
 
-      <Button className="w-full h-12 rounded-xl font-semibold text-sm gap-2">
-        <Play className="h-4 w-4" />
-        Start Practice Mode
+      <Button
+        className={`w-full h-12 rounded-xl font-semibold text-sm gap-2 transition-all duration-300 ${
+          isPracticeMode
+            ? "bg-red-500 hover:bg-red-600 text-white"
+            : ""
+        }`}
+        onClick={onTogglePractice}
+      >
+        {isPracticeMode ? (
+          <><Square className="h-4 w-4" /> Stop Practice Mode</>
+        ) : (
+          <><Play className="h-4 w-4" /> Start Practice Mode</>
+        )}
       </Button>
 
       {/* Legend */}

@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { testCenters, type TestCenter, type Route } from "@/data/testCenters";
 import MapView from "@/components/MapView";
@@ -15,6 +15,7 @@ const Index = () => {
   const [view, setView] = useState<View>("list");
   const [selectedCenter, setSelectedCenter] = useState<TestCenter | null>(null);
   const [selectedRoute, setSelectedRoute] = useState<Route | null>(null);
+  const [isPracticeMode, setIsPracticeMode] = useState(false);
 
   // Initialize from URL
   useEffect(() => {
@@ -47,6 +48,7 @@ const Index = () => {
 
   const handleBack = useCallback(() => {
     if (view === "detail") {
+      setIsPracticeMode(false);
       setSelectedRoute(null);
       setView("routes");
       setSearchParams(new URLSearchParams());
@@ -57,6 +59,10 @@ const Index = () => {
     }
   }, [view, setSearchParams]);
 
+  const handleTogglePractice = useCallback(() => {
+    setIsPracticeMode((prev) => !prev);
+  }, []);
+
   return (
     <div className="relative h-screen w-screen overflow-hidden">
       <MapView
@@ -64,6 +70,7 @@ const Index = () => {
         selectedRoute={selectedRoute}
         selectedCenter={selectedCenter}
         onCenterClick={handleSelectCenter}
+        isPracticeMode={isPracticeMode}
       />
 
       <SearchBar centers={testCenters} onSelect={handleSelectCenter} />
@@ -84,6 +91,8 @@ const Index = () => {
             route={selectedRoute}
             center={selectedCenter}
             onBack={handleBack}
+            isPracticeMode={isPracticeMode}
+            onTogglePractice={handleTogglePractice}
           />
         )}
       </BottomSheet>
