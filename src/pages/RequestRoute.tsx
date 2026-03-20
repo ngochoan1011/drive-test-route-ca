@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { testCenters } from "@/data/testCenters";
 import { ArrowLeft, Send } from "lucide-react";
@@ -10,16 +11,47 @@ const RequestRoute = () => {
   const centerId = searchParams.get("centerId");
   const center = testCenters.find((c) => c.id === centerId);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Request Sent",
-      description: "Thank you! We have received your request for route data.",
-    });
-    // For now, simply navigate back home.
-    setTimeout(() => {
-      navigate("/");
-    }, 1500);
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    // FormSubmit settings
+    formData.append("_subject", `New Route Request: ${center?.name || "Unknown Center"}`);
+    if (center) {
+      formData.append("Test Center", center.name);
+    }
+    formData.append("_captcha", "false"); // Disable recaptcha for AJAX
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/ngochoan1011@gmail.com", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Request Sent",
+          description: "Thank you! We have received your request for route data. (Check your email for activation if this is the first time using FormSubmit)",
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Error",
+        description: "There was a problem sending your request. Please try again later.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -55,6 +87,7 @@ const RequestRoute = () => {
             <input
               type="email"
               id="email"
+              name="email"
               placeholder="you@example.com"
               required
               className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow"
@@ -68,6 +101,7 @@ const RequestRoute = () => {
             <input
               type="file"
               id="route_file"
+              name="attachment"
               accept=".json,.gpx,.kml"
               className="w-full text-sm text-muted-foreground file:bg-primary/10 file:text-primary file:border-0 file:rounded-md file:px-4 file:py-2 file:mr-4 file:font-semibold hover:file:bg-primary/20 transition-colors"
             />
@@ -87,10 +121,11 @@ const RequestRoute = () => {
 
           <button
             type="submit"
-            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium py-2.5 rounded-lg flex items-center justify-center gap-2 transition-colors mt-2"
+            disabled={isSubmitting}
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium py-2.5 rounded-lg flex items-center justify-center gap-2 transition-colors mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Send className="h-4 w-4" />
-            Submit Request
+            {isSubmitting ? "Submitting..." : "Submit Request"}
           </button>
         </form>
       </div>
