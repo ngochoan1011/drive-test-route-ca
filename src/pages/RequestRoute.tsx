@@ -74,6 +74,17 @@ const RequestRoute = () => {
             <p className="text-xs text-muted-foreground">Accepts .json, .gpx, or .kml files.</p>
           </div>
 
+          <div className="bg-primary/5 rounded-lg p-4 mt-6 border border-primary/10">
+            <h3 className="text-sm font-semibold text-foreground mb-2">How to quickly create route data:</h3>
+            <ol className="list-decimal list-outside ml-4 space-y-2 text-xs text-muted-foreground">
+              <li>Open <strong>Google My Maps</strong> (<a href="https://mymaps.google.com" target="_blank" rel="noreferrer" className="text-primary hover:underline">mymaps.google.com</a>).</li>
+              <li>Create a new map and use the "Add directions" feature.</li>
+              <li>Enter the intersection points along the route sequentially (e.g., 50 Fourth Ave, Orangeville &rarr; Hwy 10 &amp; 5th Ave, Orangeville &rarr; etc.). Google will automatically draw the curve following the actual road.</li>
+              <li>Click the three dots on My Maps and select "Export to KML/KMZ".</li>
+              <li>Use an online tool (like <a href="https://geojson.io/" target="_blank" rel="noreferrer" className="text-primary hover:underline">geojson.io</a>) to convert that KML file to a precise .geojson file to submit here.</li>
+            </ol>
+          </div>
+
           <button
             type="submit"
             className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium py-2.5 rounded-lg flex items-center justify-center gap-2 transition-colors mt-2"
