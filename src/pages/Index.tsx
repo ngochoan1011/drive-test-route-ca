@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { testCenters, type TestCenter, type Route } from "@/data/testCenters";
 import MapView from "@/components/MapView";
 import SearchBar from "@/components/SearchBar";
-import BottomSheet from "@/components/BottomSheet";
+import RightSidePanel from "@/components/RightSidePanel";
 import TestCenterList from "@/components/TestCenterList";
 import RouteList from "@/components/RouteList";
 import RouteDetail from "@/components/RouteDetail";
@@ -75,7 +75,7 @@ const Index = () => {
 
       <SearchBar centers={testCenters} onSelect={handleSelectCenter} />
 
-      <BottomSheet>
+      <RightSidePanel>
         {view === "list" && (
           <TestCenterList centers={testCenters} onSelect={handleSelectCenter} />
         )}
@@ -95,7 +95,7 @@ const Index = () => {
             onTogglePractice={handleTogglePractice}
           />
         )}
-      </BottomSheet>
+      </RightSidePanel>
     </div>
   );
 };
