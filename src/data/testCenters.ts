@@ -87,9 +87,9 @@ export const testCenters: TestCenter[] = [
           { lat: 43.9339125, lng: -80.1000124, speed: 80, label: "Highway 10 Bypass (Southbound)" },
           { lat: 43.9308373, lng: -80.1003665, speed: 50, label: "First Street & Broadway (Downtown)" },
           { lat: 43.9284497, lng: -80.0952381, speed: 40, label: "Fifth Avenue (School/Residential Zone)" },
-          { lat: 43.9213868, lng: -80.0979417, speed: 40, label: "" },
-          { lat: 43.9262667, lng: -80.0943851, speed: 50, label: "Broadway (Downtown)" },
-          { lat: 43.9222601, lng: -80.0837475, speed: 40, label: "Second Avenue (Residential Zone)" },
+          { lat: 43.9213868, lng: -80.0979417, speed: 40, label: "Second Avenue (Residential Zone)" },
+          { lat: 43.9262667, lng: -80.0943851, speed: 40, label: "" },
+          { lat: 43.9222601, lng: -80.0837475, speed: 50, label: "Broadway (Downtown)" },
         ],
         hazards: [
           { lat: 43.9262667, lng: -80.0943851, type: "merge", description: "Broadway exit — Yield sign. Check pedestrians and traffic from left before merging." },
