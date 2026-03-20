@@ -158,9 +158,10 @@ const MapView = ({ centers, selectedRoute, selectedCenter, onCenterClick, isPrac
     } else {
       // Show all test center markers
       centers.forEach((center) => {
+        if (center.lat === undefined || center.lng === undefined) return;
         const icon = L.divIcon({
           className: "",
-          html: `<div style="background:#2563EB;color:white;border-radius:8px;padding:4px 10px;font-weight:600;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.15);border:2px solid white;font-family:Inter,sans-serif;">${center.city}</div>`,
+          html: `<div style="background:#2563EB;color:white;border-radius:8px;padding:4px 10px;font-weight:600;font-size:12px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.15);border:2px solid white;font-family:Inter,sans-serif;">${center.city || center.name}</div>`,
           iconAnchor: [40, 14],
         });
         L.marker([center.lat, center.lng], { icon })

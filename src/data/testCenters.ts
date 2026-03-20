@@ -28,21 +28,25 @@ export interface Route {
 export interface TestCenter {
   id: string;
   name: string;
-  city: string;
-  province: string;
   address: string;
-  lat: number;
-  lng: number;
-  routes: Route[];
+  region?: string;
+  testsOffered?: string[];
+  city?: string;
+  province?: string;
+  lat?: number;
+  lng?: number;
+  routes?: Route[];
 }
 
 export const testCenters: TestCenter[] = [
   {
     id: "orangeville",
     name: "Orangeville DriveTest Centre",
+    region: "Central",
+    address: "50 Fourth Ave, Orangeville, ON L9W 4P1",
+    testsOffered: ["G2", "G", "M2"],
     city: "Orangeville",
     province: "Ontario",
-    address: "75 Fifth Ave, Orangeville, ON L9W 1G1",
     lat: 43.9201,
     lng: -80.0943,
     routes: [
@@ -100,5 +104,123 @@ export const testCenters: TestCenter[] = [
       },
     ],
   },
+  {
+    id: "brampton",
+    name: "Brampton DriveTest Centre",
+    region: "Central",
+    address: "59 First Gulf Blvd, Unit 9, Brampton, ON L6W 4P9",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "mississauga",
+    name: "Mississauga DriveTest Centre",
+    region: "Central",
+    address: "255 Longside Drive, Mississauga, ON L5W 1L8",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "toronto-downsview",
+    name: "Toronto Downsview DriveTest Centre",
+    region: "Central",
+    address: "Downsview Park, 37 Carl Hall Rd, Toronto, ON M3K 2E2",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "toronto-etobicoke",
+    name: "Toronto Etobicoke DriveTest Centre",
+    region: "Central",
+    address: "Centennial Park Plaza, 5555 Eglinton Ave W, Unit E120-124, Etobicoke, ON M9C 5M1",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "toronto-metro-east",
+    name: "Toronto Metro East DriveTest Centre",
+    region: "Central",
+    address: "Victoria Terrace Plaza, 1448 Lawrence Ave E, Unit 15, North York, ON M4A 2V6",
+    testsOffered: ["G2", "G"]
+  },
+  {
+    id: "toronto-port-union",
+    name: "Toronto Port Union DriveTest Centre",
+    region: "Central",
+    address: "The Village of Abbey Lane, 91 Rylander Blvd, Unit 109A, Scarborough, ON M1B 5M5",
+    testsOffered: ["G2", "G"]
+  },
+  {
+    id: "newmarket",
+    name: "Newmarket DriveTest Centre",
+    region: "Central",
+    address: "320 Harry Walker Parkway S, Newmarket, ON L3Y 7B4",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "oakville",
+    name: "Oakville DriveTest Centre",
+    region: "Central",
+    address: "2370 Wyecroft Rd, Oakville, ON L6L 5L7",
+    testsOffered: ["G2", "G"]
+  },
+  {
+    id: "burlington",
+    name: "Burlington DriveTest Centre",
+    region: "Central",
+    address: "Burlington Power Centre, 1250 Brant St, Unit 2, Burlington, ON L7P 1X8",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "oshawa",
+    name: "Oshawa DriveTest Centre",
+    region: "Central",
+    address: "Midtown Mall, 200 John St W, Oshawa, ON L1J 2B4",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "barrie",
+    name: "Barrie DriveTest Centre",
+    region: "Central",
+    address: "520 Bryne Dr, Unit 7, Barrie, ON L4N 9P6",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "ottawa-walkley",
+    name: "Ottawa Walkley DriveTest Centre",
+    region: "Eastern",
+    address: "1570 Walkley Rd, Ottawa, ON K1V 6P5",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "ottawa-canotek",
+    name: "Ottawa Canotek DriveTest Centre",
+    region: "Eastern",
+    address: "5303 Canotek Rd, Unit 14, Ottawa, ON K1J 9M1",
+    testsOffered: ["G2", "G"]
+  },
+  {
+    id: "kingston",
+    name: "Kingston DriveTest Centre",
+    region: "Eastern",
+    address: "1525 Centennial Drive, Kingston, ON K7P 0K4",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "london",
+    name: "London DriveTest Centre",
+    region: "Western",
+    address: "4380 Wellington Rd S, London, ON N6E 2Z6",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "brantford",
+    name: "Brantford DriveTest Centre",
+    region: "Western",
+    address: "41 Morton Ave E, Unit 2, Brantford, ON N3R 2N6",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  },
+  {
+    id: "kitchener",
+    name: "Kitchener DriveTest Centre",
+    region: "Western",
+    address: "1405 Ottawa St N, Kitchener, ON N2A 3Z1",
+    testsOffered: ["G2", "G", "M2", "Commercial"]
+  }
 ];
-
