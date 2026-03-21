@@ -55,9 +55,12 @@ export default function About() {
       {/* Nav */}
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-          <span className="font-bold text-primary text-lg tracking-tight">
-            DriveTest Routes CA
-          </span>
+          <div className="flex items-center gap-2.5">
+            <img src="/favicon.png" alt="DriveTest Routes Logo" className="w-8 h-8 rounded-lg shadow-sm" />
+            <span className="font-bold text-primary text-lg tracking-tight">
+              DriveTest Routes CA
+            </span>
+          </div>
           <button
             onClick={() => navigate("/")}
             className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground text-sm font-semibold px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"

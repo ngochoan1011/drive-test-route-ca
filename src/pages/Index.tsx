@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
+import { Info } from "lucide-react";
 import { testCenters, type TestCenter, type Route } from "@/data/testCenters";
 import MapView from "@/components/MapView";
 import SearchBar from "@/components/SearchBar";
@@ -74,6 +75,14 @@ const Index = () => {
       />
 
       <SearchBar centers={testCenters} onSelect={handleSelectCenter} />
+
+      <Link
+        to="/about"
+        title="About DriveTest Routes"
+        className="absolute bottom-6 left-6 z-[1000] bg-background text-foreground p-3 rounded-full shadow-lg border border-border hover:bg-accent transition-colors flex items-center justify-center group"
+      >
+        <Info className="h-6 w-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+      </Link>
 
       <RightSidePanel>
         {view === "list" && (
